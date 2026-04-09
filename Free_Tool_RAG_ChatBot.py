@@ -32,7 +32,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_groq import ChatGroq
 
-GROQ_API_KEY = "AIzaSyBQ2X36JrcBibkjllF_H9_SgohPfA63hwU"  # Get free key from console.groq.com
+GROQ_API_KEY = ""  # Get free key from console.groq.com
 
 st.header("My First Chatbot")
 
