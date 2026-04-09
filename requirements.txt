@@ -10,3 +10,5 @@ sentence-transformers
 faiss-cpu
 httpx
 urllib3
+torch
+torchvision
