@@ -8,8 +8,5 @@ langchain-groq
 langchain-core
 sentence-transformers
 faiss-cpu
-httpx
-urllib3
-transformers
-torch
-torchvision
+transformers==4.41.2
+torch==2.2.2
