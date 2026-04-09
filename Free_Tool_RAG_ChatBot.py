@@ -5,7 +5,7 @@ import warnings
 import sys
 
 # Step 1: Basic SSL fixes
-ssl._create_default_https_context = ssl._create_unverified_context
+#ssl._create_default_https_context = ssl._create_unverified_context
 os.environ["PYTHONHTTPSVERIFY"] = "0"
 os.environ["CURL_CA_BUNDLE"] = ""
 os.environ["REQUESTS_CA_BUNDLE"] = ""
@@ -20,7 +20,7 @@ _original_init = httpx.Client.__init__
 def _patched_init(self, *args, **kwargs):
     kwargs["verify"] = False
     _original_init(self, *args, **kwargs)
-httpx.Client.__init__ = _patched_init
+#httpx.Client.__init__ = _patched_init
 
 # Step 3: Now import everything else AFTER the patch
 import pdfplumber
@@ -33,10 +33,9 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_groq import ChatGroq
 
-GROQ_API_KEY = ""  # Get free key from console.groq.com
+groq_api_key = st.secrets["GROQ_API_KEY"]  # Get free key from console.groq.com
 st.write("Python:", sys.version)
-st.write("Secrets loaded:", "GROQ_API_KEY" in st.secrets)
-st.write("Key:", st.secrets.get("GROQ_API_KEY"))
+st.write("Key exists:", "GROQ_API_KEY" in st.secrets)
 
 st.header("My First Chatbot")
 
@@ -83,7 +82,7 @@ if file is not None:
         model="llama-3.1-8b-instant",
         temperature=0.3,
         max_tokens=1000,
-        groq_api_key=GROQ_API_KEY
+        groq_api_key=st.secrets["GROQ_API_KEY"]
     )
 
     # Prompt
