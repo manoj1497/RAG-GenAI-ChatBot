@@ -5,7 +5,7 @@ import warnings
 import sys
 
 # Step 1: Basic SSL fixes
-#ssl._create_default_https_context = ssl._create_unverified_context
+ssl._create_default_https_context = ssl._create_unverified_context
 os.environ["PYTHONHTTPSVERIFY"] = "0"
 os.environ["CURL_CA_BUNDLE"] = ""
 os.environ["REQUESTS_CA_BUNDLE"] = ""
@@ -20,7 +20,7 @@ _original_init = httpx.Client.__init__
 def _patched_init(self, *args, **kwargs):
     kwargs["verify"] = False
     _original_init(self, *args, **kwargs)
-#httpx.Client.__init__ = _patched_init
+httpx.Client.__init__ = _patched_init
 
 # Step 3: Now import everything else AFTER the patch
 import pdfplumber
