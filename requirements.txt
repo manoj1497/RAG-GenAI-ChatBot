@@ -12,4 +12,4 @@ httpx
 urllib3
 transformers
 torch
-torchvision==0.17.2
+torchvision
