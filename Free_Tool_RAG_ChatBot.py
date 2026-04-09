@@ -33,8 +33,8 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_groq import ChatGroq
 
 GROQ_API_KEY = ""  # Get free key from console.groq.com
-st.write("Key exists:", "GROQ_API_KEY" in st.secrets)
-st.write("Key value:", st.secrets.get("GROQ_API_KEY"))
+# st.write("Key exists:", "GROQ_API_KEY" in st.secrets)
+# st.write("Key value:", st.secrets.get("GROQ_API_KEY"))
 
 st.header("My First Chatbot")
 
