@@ -8,7 +8,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 os.environ["PYTHONHTTPSVERIFY"] = "0"
 os.environ["CURL_CA_BUNDLE"] = ""
 os.environ["REQUESTS_CA_BUNDLE"] = ""
-os.environ["HF_HUB_DISABLE_SSL_VERIFICATION"] = ""
+os.environ["HF_HUB_DISABLE_SSL_VERIFICATION"] = "1"
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -32,7 +32,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_groq import ChatGroq
 
-GROQ_API_KEY = ""  # Get free key from console.groq.com
+GROQ_API_KEY = "AIzaSyBQ2X36JrcBibkjllF_H9_SgohPfA63hwU"  # Get free key from console.groq.com
 
 st.header("My First Chatbot")
 
