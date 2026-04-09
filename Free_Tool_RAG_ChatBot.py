@@ -2,6 +2,7 @@ import ssl
 import os
 import urllib3
 import warnings
+import sys
 
 # Step 1: Basic SSL fixes
 ssl._create_default_https_context = ssl._create_unverified_context
