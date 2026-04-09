@@ -8,5 +8,5 @@ langchain-groq
 langchain-core
 sentence-transformers
 faiss-cpu
-transformers==4.41.2
+transformers
 torch==2.9.0
