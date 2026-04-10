@@ -41,14 +41,17 @@ st.header("My First Chatbot")
 
 with st.sidebar:
     st.title("Your Documents")
-    file = st.file_uploader("Upload a PDF file and start asking questions", type="pdf")
+    files = st.file_uploader("Upload a one or more PDF file and start asking questions", type="pdf", accept_multiple_files=True)
 
-if file is not None:
-    # Extract text from PDF
-    with pdfplumber.open(file) as pdf:
-        text = ""
-        for page in pdf.pages:
-            text += page.extract_text() + "\n"
+if files:
+    all_text = ""
+    for uploaded_file in files:
+        with pdfplumber.open(uploaded_file) as pdf:
+            for page in pdf.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    all_text += page_text + "\n"
+    text = all_text
 
     # Split text into chunks
     text_splitter = RecursiveCharacterTextSplitter(
